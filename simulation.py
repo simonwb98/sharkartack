@@ -61,19 +61,19 @@ class Swarm:
     """
 
     def __init__(self, 
-                 number_of_fish=20,
-                 repulsion_radius=1, 
-                 orientation_width=10,
-                 attraction_width=10,
-                 angle_of_perception=340/360*np.pi, 
-                 turning_rate=0.1,
-                 speed=0.1,
-                 noise_sigma=0.01,
-                 dt=0.1,
-                 box_lengths=[100,100,100],
+                 number_of_fish = 20,
+                 repulsion_radius = 1, 
+                 orientation_width = 10,
+                 attraction_width = 10,
+                 angle_of_perception = 340/360*np.pi, 
+                 turning_rate = 0.1,
+                 speed = 0.1,
+                 noise_sigma = 0.01,
+                 dt = 0.1,
+                 box_lengths = [100,100,100],
                  reflect_at_boundary = [True, True, True],
-                 verbose=False,
-                 show_progress=False,
+                 verbose = False,
+                 show_progress = False,
                  ):
         """
         Setup a simulation with parameters as defined in the paper.
