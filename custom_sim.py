@@ -28,14 +28,15 @@ class Shark:
 
     def update_a(self, sharks):
         self.acceleration = 0
-
+        '''
         # Changing acceleration due to food
         if self.hungry:
             # Food is attractive 
             self.acceleration -= self.position/np.linalg.norm(self.position)**3
-        else:
-            # Food is not attractive
+        elif not self.hungry and np.linalg.norm(self.position) < 1:
+            # Food is repulsive
             self.acceleration += self.position/np.linalg.norm(self.position)**3
+        '''
 
 
         # Changing acceleration due to other sharks
@@ -47,27 +48,29 @@ class Shark:
             # Norm of distance between sharks
             norm = np.linalg.norm(dis)
 
+            f_const = 1
+            expon = 1
 
-            if angle < self.alpha:
-                # Check if other shark is in field of view
+            # Check if other shark is in field of view
+            
+            if 0 < norm < self.zor:
+                # Shark is in repulsive zone
+                self.acceleration -= f_const*1/norm**expon * dis
+                
 
-                if 0 < norm < self.zoo:
-                    # Shark is in repulsive zone
-                    self.acceleration -= 1/norm**3 * dis
-                    
-
-                elif self.zoo <= norm < self.zor and not self.hungry:
-                    # Shark is in direction matching zone (zone of orientation)
-                    self.acceleration += shark.velocity/norm**2/np.linalg.norm(shark.velocity)
+            elif self.zor <= norm < self.zoo:# and not self.hungry:
+                # Shark is in direction matching zone (zone of orientation)
+                self.acceleration += f_const*shark.velocity/norm**expon/np.linalg.norm(shark.velocity)
 
 
-                elif self.zor <= norm <= self.zoa and not self.hungry:
-                    # Shark is in attractive zone
-                    self.lin_acceleration += 1/norm**3 * dis
+            elif self.zoo <= norm <= self.zoa:# and not self.hungry:
+                #print("Attracts:", f_const*1/norm**expon * dis)
+                # Shark is in attractive zone
+                self.acceleration += f_const*1/norm**expon * dis
 
-                elif norm < 0:
-                    # Error with position
-                    print("Error in Shark position...")
+            elif norm < 0:
+                # Error with position
+                print("Error in Shark position...")
 
 
     def update_v(self, dt):
@@ -104,15 +107,16 @@ if __name__ == "__main__":
     import matplotlib.pyplot as plt
 
     # Instantiate sharks
+    shark_nb = 20
     sharks = []
-    for i in range(3):
+    for i in range(shark_nb):
         sharks.append(Shark(
             np.random.rand(3)*20 - 10,  # Positions
-            np.random.rand(3),          # Velocities
+            np.random.rand(3)*2-1,          # Velocities
             0,                          # alpha
             3,                          # zoo
             0.5,                         # zor
-            10,                         # zoa
+            50,                         # zoa
             ))
 
 
@@ -126,10 +130,9 @@ print()
 for i in sharks:
     print("pos:", i.position)
 print()'''
-time_array = np.linspace(0, 10, 101)
-shark_nb = 3
+time_array = np.linspace(0, 10, 1001)
 
-data = np.zeros((shark_nb, len(time_array)))
+data = np.zeros((shark_nb, len(time_array), 3))
 
 for t_ind, time in enumerate(time_array):
     for i, v in enumerate(sharks):
@@ -139,7 +142,20 @@ for t_ind, time in enumerate(time_array):
     for i, shark in enumerate(sharks):
         shark.update_p(0.1)
 
-        data[i, t_ind] = shark.position
+        data[i, t_ind, :] = shark.position
+
+
+
+# Plotting everything
+
+fig = plt.figure()
+
+ax = fig.add_subplot(111, projection = '3d')
+
+for i in range(shark_nb):
+    ax.plot(data[i,:,0], data[i,:,1], data[i,:,2])
+
+plt.show()
 
     
     
