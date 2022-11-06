@@ -46,6 +46,8 @@ If this decision has been made by a shark it turns into a hungry shark and will 
 
 $$a_f = -c\frac{r_s}{|r_s|}.$$
 
+where $c$ is a constant.
+
 ## The Visualization
 
 Art moves the soul . In this visualization, the collective movement of sharks in turn produces a simple yet mesmerizing pattern of dynamic interactions, balanced between attraction towards the food source and repulsion in space from others, to yield a state in which nourishment of the soul is achieved, both of the sharks, and of the perceiver of this beautiful simulation. 
