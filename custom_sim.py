@@ -116,7 +116,7 @@ def simulate(nb_sharks, time_array, zoo, zor, zoa):
             ))
 
     # Create data array
-    data = np.zeros((shark_nb, len(time_array), 3))
+    data = np.zeros((nb_sharks, len(time_array), 3))
 
     for t_ind, time in enumerate(time_array):
         for i, v in enumerate(sharks):
@@ -132,6 +132,8 @@ def simulate(nb_sharks, time_array, zoo, zor, zoa):
             # Storing data into array
             data[i, t_ind, :] = shark.position
 
+    return data
+
 
 
 
@@ -139,10 +141,21 @@ if __name__ == "__main__":
 
     import matplotlib.pyplot as plt
 
-    simulate(20, np.linspace(0, 10, 1001), 3, 0.5, 50)
+    data = simulate(20, np.linspace(0, 10, 101), 3, 0.5, 50)
+    # Plotting everything
 
+    fig = plt.figure()
+
+    ax = fig.add_subplot(111, projection = '3d')
+
+    print(data)
+
+    for i in range(20):
+        ax.plot(data[i,:,0], data[i,:,1], data[i,:,2])
+
+    plt.show()
     
-
+    '''
     # Instantiate sharks
     shark_nb = 20
     sharks = []
@@ -161,6 +174,7 @@ if __name__ == "__main__":
 
 
 '''
+'''
 for i in sharks:
     print("acceleration:", i.acceleration)
 print()
@@ -171,7 +185,7 @@ for i in sharks:
     print("pos:", i.position)
 print()'''
 #time_array = np.linspace(0, 10, 1001)
-
+'''
 data = np.zeros((shark_nb, len(time_array), 3))
 
 for t_ind, time in enumerate(time_array):
@@ -184,18 +198,11 @@ for t_ind, time in enumerate(time_array):
 
         data[i, t_ind, :] = shark.position
 
+'''
 
 
-# Plotting everything
 
-fig = plt.figure()
-
-ax = fig.add_subplot(111, projection = '3d')
-
-for i in range(shark_nb):
-    ax.plot(data[i,:,0], data[i,:,1], data[i,:,2])
-
-plt.show()
+    
 
     
     
