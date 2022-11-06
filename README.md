@@ -40,7 +40,9 @@ For every shark with parameters $(r_s, v_s)$, three zones of interaction are ide
 ### Modeling shark-food interactions:
 We measured a sharks appetite with a ``hunger`` parameter $(h)$. If an individual has recently eaten, it will be close to 1 and diminish over time with a personalized (i.e. randomized for each shark) decay-rate. At every time-step, a shark decides to go for food with a probability
 
-$$p(\text{goes for food}) = \exp(-8h)$$
+$$p(\text{"goes for food"}) = \exp(-8h).$$
+
+If this decision has been made by a shark, it will ignore the above rules (2) and (3) and head towards the food source. The ``hunger`` parameter is replenished back to 1, if the shark has entered a feeding-zone around the diver and the above rules are reinstated again. 
 
 ## The Visualization
 
