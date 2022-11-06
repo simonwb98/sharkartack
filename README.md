@@ -24,21 +24,13 @@ where $a_i(t)$ is a measure for the net interaction of one shark with all the ot
 For every shark with parameters ($r_s$, $v_s$), three zones of interaction are identified (from smallest to largest): 
 \begin{enumerate}
   \item zone of repulsion (zor): A number of $N_r$ sharks inside this zone contribute to $a_i$ by a repulsive component
-    \begin{equation}
-      a_r = -\sum_{j = 0}^{N_r}\frac{r_j - r_s}{|r_j - r_s|^n}.
-      \label{eq:zor}
-    \end{equation}
+    $$a_r = -\sum_{j = 0}^{N_r}\frac{r_j - r_s}{|r_j - r_s|^n}.$$
     This simulates the size of each shark. The exponent $n$ is a parameter that we let vary.
   \item zone of orientation (zoo): A number of $N_o$ sharks inside this zone contribute to $a_i$ by tending to align neighbouring sharks:
     $$a_o = \frac{1}{\tau}\sum_{j=0}^{N_o}v_j.$$
-      \label{eq:zoo}
-    \end{equation}
-    A shark tends to align it's direction according to it's nearest neighbours inside this zone.
+      A shark tends to align it's direction according to it's nearest neighbours inside this zone.
   \item zone of attraction (zoa): Outside the zoo, sharks are generally drawn towards each other using an attractive force
-    \begin{equation}
-      a_a = \sum_{j=0}^{N_a} \frac{r_j - r_s}{|r_j - r_s|^m}.
-      \label{eq:zoa}
-    \end{equation}
+    $$a_a = \sum_{j=0}^{N_a} \frac{r_j - r_s}{|r_j - r_s|^m}.$$
     Sharks that are separated far from each other tend to be attract.
 \end{enumerate}
 
