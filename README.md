@@ -14,7 +14,7 @@ The simulation of collective hunting takes into account the following parameters
 
 How it works:
 We adopted a simplified 3D swarming model defined by [Couzin et. al](https://pubmed.ncbi.nlm.nih.gov/12297066/) and modified it to take feeding into account.
-The position $r_i(t)$ and direction ($v_i(t)$) of each shark at every time-step $\tau$ changes according to a set of rules. 
+The position $(r_i(t))$ and direction $(v_i(t)$) of each shark at every time-step $\tau$ changes according to a set of rules. 
 In general:
 \begin{align}
   v_i(t + \tau) &= v_i(t) + a_i(t)\tau \\
