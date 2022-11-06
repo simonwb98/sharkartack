@@ -37,6 +37,9 @@ For every shark with parameters $(r_s, v_s)$, three zones of interaction are ide
 
 &nbsp; &nbsp; &nbsp; &nbsp;![Shark Zones](zones.png "Shark zones")
 
+### Modeling shark-food interactions:
+We measured a sharks appetite with a ``hunger`` parameter. If an individual has recently eaten, it will be close to 1 and diminish over time with a personalized (i.e. randomized for each shark) decay-rate. At every time-step, a shark decides to go for food or not with a probability
+
 ## The Visualization
 
 Art moves the soul . In this visualization, the collective movement of sharks in turn produces a simple yet mesmerizing pattern of dynamic interactions, balanced between attraction towards the food source and repulsion in space from others, to yield a state in which nourishment of the soul is achieved, both of the sharks, and of the perceiver of this beautiful simulation. 
