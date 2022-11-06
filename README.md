@@ -7,7 +7,7 @@ In contrast to cultural depictions of the lone hunter, many shark species [hunt 
 
 Our objective, then, was to simulate sharks gathering around a feeding ground in order to assess potentially relevant parameters governing these 'simple rules' in collective hunting. 
 
-Our inspiration were patterns we observed in a [documentary](https://www.youtube.com/watch?v=zeEUgZlogkM&ab_channel=BlueWorldTV). 
+Our inspiration were patterns we observed in a [documentary](https://www.youtube.com/watch?v=zeEUgZlogkM&ab_channel=BlueWorldTV) in which divers would regularly feed sharks in the Bahamas for research purposes. See the figure below for a snapshot from the documentary
 
 ![Shark Feeding](inspiration.png "Shark Feeding")
 
