@@ -28,15 +28,16 @@ class Shark:
 
     def update_a(self, sharks):
         self.acceleration = 0
-        '''
+        
         # Changing acceleration due to food
-        if self.hungry:
+        if self.hungry or np.linalg.norm(self.position) > 10:
             # Food is attractive 
-            self.acceleration -= self.position/np.linalg.norm(self.position)**3
+            self.acceleration -= self.position/np.linalg.norm(self.position)
+
         elif not self.hungry and np.linalg.norm(self.position) < 1:
             # Food is repulsive
-            self.acceleration += self.position/np.linalg.norm(self.position)**3
-        '''
+            self.acceleration += self.position/np.linalg.norm(self.position)
+    
 
 
         # Changing acceleration due to other sharks
@@ -60,7 +61,7 @@ class Shark:
 
             elif self.zor <= norm < self.zoo:# and not self.hungry:
                 # Shark is in direction matching zone (zone of orientation)
-                self.acceleration += f_const*shark.velocity/norm**expon/np.linalg.norm(shark.velocity)
+                self.acceleration += f_const*shark.velocity/norm**expon/np.linalg.norm(shark.velocity)/5
 
 
             elif self.zoo <= norm <= self.zoa:# and not self.hungry:
