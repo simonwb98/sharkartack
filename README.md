@@ -13,7 +13,7 @@ Our objective, then, was to simulate sharks gathering around a feeding ground in
 The simulation of collective hunting takes into account the following parameters: velocity of shark, position of shark, hunger level, which in turn influences proximity to food source, and repulsion from other sharks. 
 
 How it works:
-We adopted a simplified 3D swarming model defined by [Couzin et. al](doi:10.1006/yjtbi.306) and modified it to take feeding into account.
+We adopted a simplified 3D swarming model defined by [Couzin et. al](https://pubmed.ncbi.nlm.nih.gov/12297066/) and modified it to take feeding into account.
 The position ($r_i(t)$) and direction ($v_i(t)$) of each shark at every time-step $\tau$ changes according to a set of rules. 
 In general:
 \begin{align}
