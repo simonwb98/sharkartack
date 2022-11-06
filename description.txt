@@ -34,9 +34,6 @@ For every shark ($r_s$, $v_s$), three zones of interaction are identified (from 
     \end{equation}
     Sharks that are separated far from each other tend to be attract.
 \end{enumerate}
- 
-
-&nbsp; &nbsp; &nbsp; &nbsp;![Shark Zones](zones.png "Shark zones")
 
 Modeling shark-food interactions:
 We measured a sharks appetite with a \verb|hunger| parameter $(h)$. If an individual has recently eaten, it will be close to 1 and diminish over time with a personalized (i.e. randomized for each shark) decay-rate. At every time-step, a shark decides to go for food with a probability
