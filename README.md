@@ -7,6 +7,7 @@ In contrast to cultural depictions of the lone hunter, many shark species [hunt 
 
 Our objective, then, was to simulate sharks gathering around a feeding ground in order to assess potentially relevant parameters governing these 'simple rules' in collective hunting. 
 
+![MarineGEO circle logo](/assets/img/MarineGEO_logo.png "MarineGEO logo")
 
 ## The Model 
 
