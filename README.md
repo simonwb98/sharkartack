@@ -38,7 +38,9 @@ For every shark with parameters $(r_s, v_s)$, three zones of interaction are ide
 &nbsp; &nbsp; &nbsp; &nbsp;![Shark Zones](zones.png "Shark zones")
 
 ### Modeling shark-food interactions:
-We measured a sharks appetite with a ``hunger`` parameter. If an individual has recently eaten, it will be close to 1 and diminish over time with a personalized (i.e. randomized for each shark) decay-rate. At every time-step, a shark decides to go for food or not with a probability
+We measured a sharks appetite with a ``hunger`` parameter $(h)$. If an individual has recently eaten, it will be close to 1 and diminish over time with a personalized (i.e. randomized for each shark) decay-rate. At every time-step, a shark decides to go for food with a probability
+
+$$\exp(-8h)$$
 
 ## The Visualization
 
