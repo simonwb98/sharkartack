@@ -42,7 +42,9 @@ We measured a sharks appetite with a ``hunger`` parameter $(h)$. If an individua
 
 $$p(\text{"goes for food"}) = \exp(-8h).$$
 
-If this decision has been made by a shark, it will ignore the above rules (2) and (3) and head towards the food source. The ``hunger`` parameter is replenished back to 1, if the shark has entered a feeding-zone around the diver and the above rules are reinstated again. 
+If this decision has been made by a shark it turns into a hungry shark and will ignore the above rules (2) and (3) and head towards the food source. The ``hunger`` parameter is replenished back to 1, if the shark has entered a feeding-zone around the diver and the above rules are reinstated again. A hungry shark is drawn towards the food source by 
+
+$$-c\frac{r_s}{|r_s}$$
 
 ## The Visualization
 
