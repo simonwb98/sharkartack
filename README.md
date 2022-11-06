@@ -35,7 +35,7 @@ For every shark with parameters $(r_s, v_s)$, three zones of interaction are ide
     $$a_a = \sum_{j=0}^{N_a} \frac{r_j - r_s}{|r_j - r_s|^m}.$$
     Sharks that are separated far from each other tend to be attract.
 
-![Shark Feeding](inspiration.png "Shark Feeding")
+![Shark Zones](zones.png "Shark zones")
 
 ## The Visualization
 
