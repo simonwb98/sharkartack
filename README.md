@@ -18,7 +18,7 @@ The position $(r_i(t))$ and direction $(v_i(t))$ of each shark at every time-ste
 In general:
 $$v_i(t + \tau) = v_i(t) + a_i(t)\tau$$
 $$r_i(t + \tau) = r_i(t) + v_i(t)\tau$$
-where $a_i(t)$ is a measure for the net interaction of one shark with all the others and the feeding point.
+where $a_i(t)$ is a measure for the net interaction of one shark with all the others and the feeding point. $v_i$ is fixed in magnitude.
 
 Modeling shark-shark interactions:
 For every shark ($r_s$, $v_s$), three zones of interaction are identified (from smallest to largest): 
