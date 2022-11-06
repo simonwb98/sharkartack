@@ -6,7 +6,7 @@ def force_law(dist):
     return dist/(np.norm(dist))**3
 
 class Shark:
-    def __init__(self, position, velocity, alpha, zoo, zor, zoa):
+    def __init__(self, position, velocity, alpha, zoo, zor, zoa, food_size):
         self.position = position
         self.velocity = velocity/np.linalg.norm(velocity)
         self.acceleration = np.array([0, 0, 0])
@@ -18,10 +18,9 @@ class Shark:
 
         self.hunger = random.random()
         self.hungry = False
-        self.hunger_thresh = 0.5
-        self.hunger_rate = -0.1
+        self.hunger_rate = -0.1*random.random()
 
-        self.food_size = 0.1
+        self.food_size = food_size
 
 
 
@@ -32,11 +31,13 @@ class Shark:
         # Changing acceleration due to food
         if self.hungry or np.linalg.norm(self.position) > 10:
             # Food is attractive 
-            self.acceleration -= self.position/np.linalg.norm(self.position)
+            #print("hungry")
+            self.acceleration -= 5*self.position/np.linalg.norm(self.position)
 
-        elif not self.hungry and np.linalg.norm(self.position) < 1:
+        elif not self.hungry and np.linalg.norm(self.position) < 3:
             # Food is repulsive
-            self.acceleration += self.position/np.linalg.norm(self.position)
+            #print("not hungry")
+            self.acceleration += 10*self.position/np.linalg.norm(self.position)
     
 
 
@@ -80,26 +81,32 @@ class Shark:
         self.velocity = self.velocity + self.acceleration*dt
         # Normalize velocity
         self.velocity = self.velocity/np.linalg.norm(self.velocity)
-
+        #print("Hunger:", self.hunger)       
         if not self.hungry:
             # Hunger increases at every time step
             self.hunger += self.hunger_rate*dt
+            
 
             # Given probability shark can become hungry
-            if np.exp(-self.hunger*2) > random.random():
+            myrand = random.random()
+            #print("Prob:", myrand)
+            #print("Exponent:", np.exp(-self.hunger*4))
+            if np.exp(-self.hunger*8) > myrand:#random.random():
                 self.hungry = True
 
 
 
         if np.linalg.norm(self.position) < self.food_size: # Shark is on food
+            #print("feeds")
+            #print(self.position)
             self.hungry = False # Stops being hungry
-            self.hunger = 1 
+            self.hunger = 1.0 
 
     def update_p(self, dt):
         self.position += self.velocity*dt 
 
 
-def simulate(nb_sharks, time_array, zoo, zor, zoa):
+def simulate(nb_sharks, time_array, zoo, zor, zoa, food_size):
      # Instantiate sharks
 
     sharks = []
@@ -107,12 +114,13 @@ def simulate(nb_sharks, time_array, zoo, zor, zoa):
 
     for i in range(nb_sharks):
         sharks.append(Shark(
-            np.random.rand(3)*20 - 10,  # Positions
-            np.random.rand(3)*2-1,      # Velocities
+            np.random.rand(3)*10 - 5,  # Positions
+            np.random.rand(3)*10 - 5,      # Velocities
             0,                          # alpha
             zoo,                          # zoo
             zor,                        # zor
             zoa,                         # zoa
+            food_size
             ))
 
     # Create data array
@@ -141,17 +149,20 @@ if __name__ == "__main__":
 
     import matplotlib.pyplot as plt
 
-    data = simulate(20, np.linspace(0, 10, 101), 3, 0.5, 50)
+    food_size = 0.1
+    data = simulate(20, np.linspace(0, 100, 1001), 3, 0.5, 50, food_size)
     # Plotting everything
 
     fig = plt.figure()
 
     ax = fig.add_subplot(111, projection = '3d')
 
-    print(data)
+    #print(data)
 
     for i in range(20):
         ax.plot(data[i,:,0], data[i,:,1], data[i,:,2])
+
+    ax.scatter([0], [0], [0], s = 10)
 
     plt.show()
     
