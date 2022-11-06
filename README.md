@@ -21,7 +21,7 @@ $$r_i(t + \tau) = r_i(t) + v_i(t)\tau$$
 where $a_i(t)$ is a measure for the net interaction of one shark with all the others and the feeding point. $v_i$ is fixed in magnitude.
 
 ### Modeling shark-shark interactions:
-For every shark with parameters ($r_s$, $v_s$), three zones of interaction are identified (from smallest to largest): 
+For every shark with parameters $(r_s, v_s)$, three zones of interaction are identified (from smallest to largest): 
 1. zone of repulsion (zor): A number of $N_r$ sharks inside this zone contribute to $a_i$ by a repulsive component
     $$a_r = -\sum_{j = 0}^{N_r}\frac{r_j - r_s}{|r_j - r_s|^n}.$$
     This simulates the size of each shark. The exponent $n$ is a parameter that we let vary.
