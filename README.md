@@ -10,13 +10,9 @@ Our objective, then, was to simulate sharks gathering around a feeding ground in
 
 ## The Model 
 
-direction, position - influenced by previous timestamp, number of sharks in current time stamp, proximity to food if hungry, velocaity updated at every time stamp (far - swim towards)
+The simulation of collective hunting takes into account the following parameters: velocity of shark, position of shark, hunger level, which in turn influences proximity to food source, and repulsion from other sharks. 
 
-a function that will update a class, store values of class into array
-output - array of data
-
-model for food - food available at a fixed point randomly, every shark makes decision to get food (exponential of hungry), drawn to source and maintain decision unless food is eaten, grab it and leave it. other sharks maintain hunger that didn't get food and they get closer in proximity to the food source 
 
 ## The Visualization
 
-call function
+Art moves the soul . In this visualization, the collective movement of sharks in turn produces a simple yet mesmerizing pattern of dynamic interactions, balanced between attraction towards the food source and repulsion in space from others, to yield a state in which nourishment of the soul is achieved, both of the sharks, and of the perceiver of this beautiful simulation. 
