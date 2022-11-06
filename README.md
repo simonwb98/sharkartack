@@ -16,10 +16,8 @@ How it works:
 We adopted a simplified 3D swarming model defined by [Couzin et. al](https://pubmed.ncbi.nlm.nih.gov/12297066/) and modified it to take feeding into account.
 The position $(r_i(t))$ and direction $(v_i(t))$ of each shark at every time-step $\tau$ changes according to a set of rules. 
 In general:
-$$
-  v_i(t + \tau) &= v_i(t) + a_i(t)\tau \\
-  r_i(t + \tau) &= r_i(t) + v_i(t)\tau
-$$
+$$v_i(t + \tau) &= v_i(t) + a_i(t)\tau \\
+  r_i(t + \tau) &= r_i(t) + v_i(t)\tau$$
 where $a_i(t)$ is a measure for the net interaction of one shark with all the others and the feeding point.
 
 Modeling shark-shark interactions:
