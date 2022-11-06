@@ -99,6 +99,38 @@ class Shark:
         self.position += self.velocity*dt 
 
 
+def simulate(nb_sharks, time_array, zoo, zor, zoa):
+     # Instantiate sharks
+
+    sharks = []
+    dt = time_array[1]-time_array[0]
+
+    for i in range(nb_sharks):
+        sharks.append(Shark(
+            np.random.rand(3)*20 - 10,  # Positions
+            np.random.rand(3)*2-1,      # Velocities
+            0,                          # alpha
+            zoo,                          # zoo
+            zor,                        # zor
+            zoa,                         # zoa
+            ))
+
+    # Create data array
+    data = np.zeros((shark_nb, len(time_array), 3))
+
+    for t_ind, time in enumerate(time_array):
+        for i, v in enumerate(sharks):
+            # Updating acceleration and velocity
+            new_s = [j for j in np.delete(sharks, i)]
+            v.update_a(new_s)
+            v.update_v(dt)
+
+        for i, shark in enumerate(sharks):
+            # Updating position
+            shark.update_p(dt)
+
+            # Storing data into array
+            data[i, t_ind, :] = shark.position
 
 
 
@@ -106,6 +138,10 @@ class Shark:
 if __name__ == "__main__":
 
     import matplotlib.pyplot as plt
+
+    simulate(20, np.linspace(0, 10, 1001), 3, 0.5, 50)
+
+    
 
     # Instantiate sharks
     shark_nb = 20
@@ -121,6 +157,9 @@ if __name__ == "__main__":
             ))
 
 
+    
+
+
 '''
 for i in sharks:
     print("acceleration:", i.acceleration)
@@ -131,7 +170,7 @@ print()
 for i in sharks:
     print("pos:", i.position)
 print()'''
-time_array = np.linspace(0, 10, 1001)
+#time_array = np.linspace(0, 10, 1001)
 
 data = np.zeros((shark_nb, len(time_array), 3))
 
